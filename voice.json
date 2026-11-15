@@ -1,7 +1,7 @@
 {
   "schema_version": "quillgrain.voice-pack/v1",
   "id": "quillgrain.common",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "visibility": "public",
   "status": "CANDIDATE",
   "languages": [
@@ -238,7 +238,11 @@
       "enforcement": "human_review",
       "evidence_ids": [],
       "origin": "designed_default",
-      "status": "REVIEWED"
+      "status": "REVIEWED",
+      "conflicts_with": [
+        "common.emoji.longform",
+        "common.emoji.x"
+      ]
     },
     {
       "id": "common.emoji.x",
@@ -263,7 +267,11 @@
       "enforcement": "human_review",
       "evidence_ids": [],
       "origin": "designed_default",
-      "status": "REVIEWED"
+      "status": "REVIEWED",
+      "conflicts_with": [
+        "common.emoji.longform",
+        "common.emoji.telegram"
+      ]
     },
     {
       "id": "common.emoji.longform",
@@ -288,7 +296,11 @@
       "enforcement": "human_review",
       "evidence_ids": [],
       "origin": "designed_default",
-      "status": "REVIEWED"
+      "status": "REVIEWED",
+      "conflicts_with": [
+        "common.emoji.telegram",
+        "common.emoji.x"
+      ]
     },
     {
       "id": "common.ru.source-boundary",
@@ -335,7 +347,7 @@
           "maker_announcement"
         ]
       },
-      "instruction": "Начни с существенного для задачи: изменения, наблюдения, вопроса или положения дел. Дай мысли направление и развивай его через связанные детали. Не каждому тексту нужен остроумный заход: короткий ответ может сразу отвечать, а уведомление — спокойно сообщать событие.",
+      "instruction": "Начни с существенного для задачи: изменения, наблюдения, вопроса или положения дел. Развивай мысль через связанные детали; не прячь необходимое условие ради эффектного начала. Прямой ответ и официальное уведомление допустимы без остроты.",
       "priority": 85,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -350,7 +362,7 @@
           "ru"
         ]
       },
-      "instruction": "Показывай действие обычным точным глаголом. Предметная деталь нужна, если помогает увидеть ситуацию или понять мысль; не придумывай декорации для оживления фактического поста.",
+      "instruction": "Выбирай точный глагол, если он проясняет действие без потери смысла. Нужный термин и полезная абстракция могут оставаться; приблизительный синоним не заменяет понятие. Устойчивый оборот сохраняет значение целого: исправляй случайную порчу, учитывай заданную языковую игру и цитату. Переносное слово не добавляет буквальный предмет или событие. Не выдумывай детали ради наглядности. При неясном намерении отличай уверенную ошибку от факультативной правки.",
       "priority": 80,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -365,7 +377,7 @@
           "ru"
         ]
       },
-      "instruction": "Соразмеряй темп движению мысли. Длинное предложение может связывать причины и оговорки, короткое — уточнять или завершать ход. Размер абзаца определяется его задачей; не чередуй длины по схеме и не дублируй уже сделанный вывод.",
+      "instruction": "Соразмеряй темп движению мысли. Сохраняй повтор, если он удерживает термин, нажим или ритм; убирай пустое перефразирование. Разговорная частица, неполная и длинная фраза допустимы по задаче и говорящему. Делить и сокращать нужно при потере связи, не по схеме длинное — короткое и не ради числа удалённых слов.",
       "priority": 75,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -385,7 +397,7 @@
           "maker_announcement"
         ]
       },
-      "instruction": "Выбери дистанцию по задаче и аудитории. Объясняй читателю действие, существенный результат и границы понятными словами. «Ты», «вы», обращение к группе или отсутствие обращения равно допустимы, если подходят ситуации; фамильярность сама по себе не делает текст живым.",
+      "instruction": "Выбирай дистанцию, порядок и глубину под задачу и знания адресата. Пользователю нужны данные для действия, специалисту — точные условия без лишнего урока. Незнакомый термин или код поясняй сведениями из brief; привычное сокращение не расшифровывай каждый раз и не выдумывай полное имя. Сохраняй нужный идентификатор и однозначную ссылку на предмет. Для устной инструкции учитывай различимость названий. Обращение выбирается по ситуации. Не создавай акроним ради разового сокращения.",
       "priority": 75,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -415,7 +427,7 @@
           "ru"
         ]
       },
-      "instruction": "Заверши текущий ход мысли: ответом, существенной оговоркой, решением или действием сцены. Если достаточно, остановись. Не добавляй универсальную мораль, рекламный призыв или готовый афоризм ради эффекта; такая концовка требует основания в задаче.",
+      "instruction": "Заверши текущий ход мысли: ответом, существенным условием, решением или действием сцены. Запрошенное резюме сохраняй; пустой второй итог не добавляй. Универсальная мораль, рекламный призыв и готовый афоризм требуют основания в задаче.",
       "priority": 70,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -430,7 +442,7 @@
           "ru"
         ]
       },
-      "instruction": "Сверь каждое утверждение с заданием. Сохраняй различие между событиями и их завершением, возможность и уверенность, участников и всех окружающих. Не додумывай причины ограничений, мотивы команды, прежнее поведение продукта, обязанности читателя и способ проверки прав. Отсутствие функции достаточно назвать; объяснять его незаданной причиной нельзя.",
+      "instruction": "Сверь утверждения с заданием: участники, референты, отрицание, количество, условия, статус события и уверенность должны сохраниться. Решение не равно пожеланию, возможность — обещанию. Не додумывай причины, мотивы, опыт и исполнителя. Объявленную концепцию можно прямо описывать в настоящем времени без заявления о реализации; реальную условность сохраняй. Аналогия не добавляет технических свойств.",
       "priority": 95,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -449,7 +461,7 @@
           "maker_announcement"
         ]
       },
-      "instruction": "Свяжи исходную ситуацию, механизм и следствие; назови существенное условие или предел применимости. Сравнение должно помогать понять связь, а не служить доказательством. Причину ограничения называй только при наличии в задании: иногда достаточно сообщить само ограничение.",
+      "instruction": "Свяжи ситуацию, механизм и следствие с существенными условиями. Следующее предложение должно иметь понятный референт и добавлять нужную информацию. Порядок от известного к новому — возможный приём, не обязательная грамматика. Неизвестный исполнитель допускает пассивную или безличную форму. Пробел в определении или причине не заполняй метафорой, опытом либо выдуманной выгодой.",
       "priority": 75,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -468,7 +480,7 @@
         ],
         "channel": "narration"
       },
-      "instruction": "Веди сцену через действия, восприятие и реплики с разными намерениями. Выбирай детали из точки зрения сцены; не сообщай персонажу знания, которых у него нет. Реплика может менять положение дел или выдавать отношение, не обязана быть остроумной. Не приписывай всей сцене один обязательный комический поворот.",
+      "instruction": "Если задана сцена, сохраняй её точку зрения, движение действия и функцию реплик; не превращай взаимодействие во внешнюю сводку. Явный запрос на краткий пересказ допускает сводку. Различай событие, восприятие и интерпретацию: не добавляй мотив, чувство, знание или сравнение вне brief и канона. Голос персонажа отличай от рассказчика; намеренную неизвестность не раскрывай автоматически. Сцена не требует шутки или морали.",
       "priority": 85,
       "enforcement": "human_review",
       "evidence_ids": [],
@@ -991,7 +1003,7 @@
       "register": "conversational",
       "role": "before_after",
       "source_id": "common.original-v5",
-      "status": "REVIEWED",
+      "status": "RETIRED",
       "tags": [],
       "text": "Да, хочу сходить ещё раз. Кружка, правда, не получилась: стенка дважды завалилась, и преподаватель помог собрать из неё низкую чашку. На ручку мы уже не замахивались.\n\nМне понравилось, что можно сразу увидеть, где ошибся, и попробовать иначе. В следующий раз начну с чашки. Кружка подождёт.",
       "visibility": "public",
@@ -1019,7 +1031,7 @@
       "register": "essay",
       "role": "before_after",
       "source_id": "common.original-v5",
-      "status": "REVIEWED",
+      "status": "RETIRED",
       "tags": [],
       "text": "Последняя бронь площадки начинается в половине девятого, а свет выключают в девять. В расписании свободен час, на площадке остаётся полчаса. Ограничение есть, но человек узнаёт о нём уже из письма.\n\nЗдесь расходятся две вещи: свободный интервал в системе и время, которым можно воспользоваться. Из этого ещё не следует, что кто-то намеренно вводит посетителей в заблуждение. Но различие важно показать до бронирования.\n\nМожно оставить короткий интервал и сразу назвать его продолжительность. Можно заканчивать расписание раньше. В обоих случаях человек выбирает между реальными вариантами, а не выясняет условия после выбора.",
       "visibility": "public",
@@ -1047,7 +1059,7 @@
       "register": "fiction_narration",
       "role": "before_after",
       "source_id": "common.original-v5",
-      "status": "REVIEWED",
+      "status": "RETIRED",
       "tags": [],
       "text": "Капля упала на корешок. Библиотекарь подвинула под полку пустую коробку и сняла верхний ряд книг.\n\n— Эту пока не берите, — сказала она.\n\nПосетитель придержал том ладонью.\n\n— Мне его как раз сегодня обещали.\n\n— Он мокрый. Дайте я сначала уберу остальные.\n\nОн посмотрел на тёмное пятно под потолком, отпустил корешок и отодвинул стул.\n\n— Куда складывать?\n\nОна указала на сухой стол у окна. Посетитель взял коробку двумя руками. Библиотекарь сняла следующую стопку.",
       "visibility": "public",
@@ -1075,11 +1087,123 @@
       "register": "maker_announcement",
       "role": "before_after",
       "source_id": "common.original-v5",
-      "status": "REVIEWED",
+      "status": "RETIRED",
       "tags": [],
       "text": "В журнале задач появился фильтр «Только ошибки». Он скрывает успешные записи, чтобы можно было просмотреть сбои отдельно. Сами записи остаются в журнале — фильтр ничего не удаляет.\n\nПока это работает для записей, добавленных после обновления. У старых записей нет нужной отметки, и в эту выборку они не попадут. Фильтр помогает найти ошибку; исправлять её по-прежнему нужно отдельно.",
       "visibility": "public",
       "work_id": "common.ru.maker_announcement.v5"
+    },
+    {
+      "authorship": "synthetic_ai_prepared",
+      "before": "Оригинальный вымышленный ответ другу после первой репетиции. Говорящий сбился на одном переходе, попросил повторить его дважды, со второго повтора сыграл без остановки. Хочет прийти ещё и в следующий раз проверить тот же переход. Короткий разговорный ответ; повтор «ещё раз» передаёт настойчивость. Не утверждать, что теперь всё умеет, и не добавлять общий вывод об обучении.",
+      "channel": "narration",
+      "id": "common.ru.conversational.v6",
+      "language": "ru",
+      "permissions": {
+        "approved_model_hosts": [
+          "offline",
+          "chatgpt",
+          "codex",
+          "ollama"
+        ],
+        "local_analysis": true,
+        "private_git_excerpt": true,
+        "public_redistribution": true,
+        "retrieval": true
+      },
+      "priority": 95,
+      "register": "conversational",
+      "role": "before_after",
+      "source_id": "common.original-v6",
+      "status": "REVIEWED",
+      "tags": [],
+      "text": "Хочу прийти ещё. На одном переходе я сбился и попросил: ещё раз. Потом ещё раз. Со второго повтора сыграл его без остановки.\n\nВ следующий раз хочу проверить тот же переход.",
+      "visibility": "public",
+      "work_id": "common.ru.conversational.v6"
+    },
+    {
+      "authorship": "synthetic_ai_prepared",
+      "before": "Оригинальное понятийное объяснение синтетического приложения для читателя, который знает слово «файл». Локальное сохранение записывает изменения на этом устройстве. Синхронизация передаёт сохранённые изменения на другое устройство при подключении к сети. Без сети локальное сохранение доступно, синхронизация ждёт подключения. Объяснить различие без метафор и обещания резервного копирования. Повтор терминов нужен для однозначности.",
+      "channel": "narration",
+      "id": "common.ru.essay.v6",
+      "language": "ru",
+      "permissions": {
+        "approved_model_hosts": [
+          "offline",
+          "chatgpt",
+          "codex",
+          "ollama"
+        ],
+        "local_analysis": true,
+        "private_git_excerpt": true,
+        "public_redistribution": true,
+        "retrieval": true
+      },
+      "priority": 95,
+      "register": "essay",
+      "role": "before_after",
+      "source_id": "common.original-v6",
+      "status": "REVIEWED",
+      "tags": [],
+      "text": "Локальное сохранение и синхронизация выполняют разные действия. Локальное сохранение записывает изменения на том устройстве, где вы работаете. Синхронизация передаёт сохранённые изменения на другое устройство, когда есть подключение к сети.\n\nПоэтому без сети можно сохранить файл локально. Чтобы изменения появились на другом устройстве, нужно дождаться подключения и синхронизации. Локальное сохранение само по себе этого не делает.",
+      "visibility": "public",
+      "work_id": "common.ru.essay.v6"
+    },
+    {
+      "authorship": "synthetic_ai_prepared",
+      "before": "Оригинальная сдержанная сцена через наблюдение Лиды. В мастерской капает из трубы на ящик с бумагой. Лида уже решила перенести ящик на сухой стеллаж и просит Семёна взять его с другой стороны. Семён сначала держит открытую дверь, затем ставит под неё клин и берётся за ящик. Закончить совместным переносом. Не добавлять мысли Семёна, причину течи, шутку или мораль; сохранить реплику как взаимодействие.",
+      "channel": "narration",
+      "id": "common.ru.fiction_narration.v6",
+      "language": "ru",
+      "permissions": {
+        "approved_model_hosts": [
+          "offline",
+          "chatgpt",
+          "codex",
+          "ollama"
+        ],
+        "local_analysis": true,
+        "private_git_excerpt": true,
+        "public_redistribution": true,
+        "retrieval": true
+      },
+      "priority": 95,
+      "register": "fiction_narration",
+      "role": "before_after",
+      "source_id": "common.original-v6",
+      "status": "REVIEWED",
+      "tags": [],
+      "text": "Капля попала на край ящика. Лида подхватила его снизу и кивнула на сухой стеллаж.\n\n— Возьми с той стороны.\n\nСемён придерживал открытую дверь. Он оглянулся на проход, подвинул ногой клин и отпустил ручку. Дверь осталась на месте.\n\nЛида приподняла свой край. Семён взялся за другой, и они перенесли ящик на стеллаж.",
+      "visibility": "public",
+      "work_id": "common.ru.fiction_narration.v6"
+    },
+    {
+      "authorship": "synthetic_ai_prepared",
+      "before": "Оригинальное официальное уведомление пользователям синтетической системы заявок. Новый режим проверки доступен на трёх из двенадцати терминалов: Т-2, Т-5 и Т-9. Перед подтверждением заявку можно исправить; после подтверждения правка недоступна. Остальные терминалы работают в прежнем режиме. Неизвестны причина ограничения и срок расширения. Сообщить доступность и условия, без призыва попробовать, выдуманной выгоды, обязательной шутки и расшифровки кодов.",
+      "channel": "narration",
+      "id": "common.ru.maker_announcement.v6",
+      "language": "ru",
+      "permissions": {
+        "approved_model_hosts": [
+          "offline",
+          "chatgpt",
+          "codex",
+          "ollama"
+        ],
+        "local_analysis": true,
+        "private_git_excerpt": true,
+        "public_redistribution": true,
+        "retrieval": true
+      },
+      "priority": 95,
+      "register": "maker_announcement",
+      "role": "before_after",
+      "source_id": "common.original-v6",
+      "status": "REVIEWED",
+      "tags": [],
+      "text": "Новый режим проверки заявок доступен на терминалах Т-2, Т-5 и Т-9 — трёх из двенадцати. В этом режиме заявку можно исправить до подтверждения. После подтверждения правка недоступна.\n\nОстальные терминалы работают в прежнем режиме.",
+      "visibility": "public",
+      "work_id": "common.ru.maker_announcement.v6"
     }
   ],
   "provenance": [
@@ -1107,6 +1231,11 @@
       "id": "common.original-v5",
       "kind": "synthetic_ai_prepared",
       "note": "Four original fictional before/after scenarios demonstrate conditional tone, explained mechanisms, bounded claims and distinct scene participants. Synthetic editorial fixtures, not author excerpts or model-evaluation outputs."
+    },
+    {
+      "id": "common.original-v6",
+      "kind": "synthetic_ai_prepared",
+      "note": "Four original designed scenarios illustrate bounded claims, functional repetition, distinct terms and scene interaction. No source passages, personal prose or evaluation outputs. Contrast cases are separate development data, not automatically retrieved voice examples."
     }
   ],
   "compatibility": {
@@ -1126,12 +1255,12 @@
     "public_redistribution": true
   },
   "limitations": [
-    "Common 0.5.0 is a new editorial CANDIDATE; acceptance of 0.4.2 does not validate this revision.",
-    "RU rules and demonstrations were reviewed against a broader authorized corpus; general principles are distinct from an individual author voice.",
-    "English examples are retained; only the shared factual/fiction source boundary is clarified. No new empirical EN calibration is claimed.",
-    "Only original synthetic demonstrations are distributed. No private sources, IDs, exact references, excerpts or real inference runs are included.",
+    "Common 0.6.0 is CANDIDATE / HUMAN_REVIEW_PENDING; acceptance is scoped and never inherited from 0.4.2 or 0.5.0.",
+    "RU editorial hypotheses refine existing rules and original demonstrations; their scopes and IDs are retained. No individual author voice is claimed.",
+    "English editorial instructions and examples are retained without new empirical EN calibration. Conflicting social destinations are rejected in overlapping scopes.",
+    "Only original synthetic demonstrations are distributed. No private sources, IDs, locators, excerpts or real inference runs are included.",
     "Fictional sample facts and speaker experience belong only to the sample brief.",
-    "Legacy positive RU examples remain RETIRED; the labelled Russian negative example remains opt-in. Historical 0.3.0 and 0.4.2 data are independently loadable.",
-    "Small budgets omit whole optional rules/examples; inspect omission reports."
+    "Prior positive RU examples remain RETIRED; the labelled Russian negative example is opt-in. Historical 0.3.0, 0.4.2 and 0.5.0 data are independently loadable.",
+    "Small budgets omit whole optional rules/examples; inspect omission reports. A technical pass does not establish semantic fidelity or literary quality."
   ]
 }

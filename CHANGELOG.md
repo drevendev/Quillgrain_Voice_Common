@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.6.0 — meaning-preserving editing and composition acceptance
+
+Refine eight existing RU instructions without changing rule IDs, scopes, kinds,
+priorities or enforcement. Preserve useful abstraction, precise terms, idioms,
+functional repetition, reader-specific structure and scene interaction. Replace
+the four default RU scenarios with original `.v6` demonstrations; retain `.v5`
+as RETIRED. English editorial instructions and examples are unchanged.
+
+Reject conflicting social destinations in overlapping scopes through the existing
+engine `conflicts_with` mechanism. Add synthetic composition acceptance checks and
+nine edit/preserve development families. Align provenance with canonical statuses,
+preserve exact 0.5.0 voice/lock bytes and refresh the root lock on pinned engine
+0.1.0rc4. No corpus/runtime dependency is introduced.
+
+Status remains CANDIDATE / HUMAN_REVIEW_PENDING. Writer comparison is NOT_RUN;
+see `docs/review-0.6.md` for acceptance coverage. Common + Vivid comparison,
+consumer upgrades and model-weight training are outside this release.
+
 ## 0.5.0 — conditional tone and coherent demonstrations
 
 Revisit Russian tone, rhythm, explanation and scene rules after broader reference
