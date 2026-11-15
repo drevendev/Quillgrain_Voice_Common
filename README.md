@@ -8,8 +8,8 @@ before/after examples. Editing preserves meaning, useful terms, purposeful
 repetition and scene interaction; structure and depth follow the reader's task.
 
 Status: **CANDIDATE / human review pending**. Acceptance of 0.4.2 was scoped to that
-iteration, not transferred to this release. A controlled **Codex comparison was run**;
-semantic acceptance remains open. English guidance and examples are retained without a new empirical calibration.
+iteration, not transferred to this release. Targeted R03 checks through **Codex passed**;
+owner literary acceptance remains pending. English guidance and examples are retained without a new empirical calibration.
 No model-weight training is involved.
 
 ```text

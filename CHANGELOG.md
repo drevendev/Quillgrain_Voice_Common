@@ -14,8 +14,11 @@ nine edit/preserve development families. Align provenance with canonical statuse
 preserve exact 0.5.0 voice/lock bytes and refresh the root lock on pinned engine
 0.1.0rc4. No corpus/runtime dependency is introduced.
 
-Status remains CANDIDATE / HUMAN_REVIEW_PENDING. A controlled Codex comparison
-completed with semantic refusals; see `docs/review-0.6.md` for acceptance coverage.
+Status remains CANDIDATE / HUMAN_REVIEW_PENDING. The final targeted Codex comparison passed
+R03 after two refinements; earlier failed runs remain recorded. Distinguish necessary
+conditions from execution, current operation from unchanged mode, and general work
+from unconfirmed stages. Two default scenarios and six development contrasts cover
+these boundaries. See `docs/review-0.6.md` for scoped acceptance coverage.
 Review scoped the no-invented-details guidance to factual writing, strengthened
 the mandatory budget boundary check and added byte-exact historical snapshot checks.
 Common + Vivid comparison,

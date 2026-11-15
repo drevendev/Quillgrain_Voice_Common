@@ -285,7 +285,7 @@ class Composition(unittest.TestCase):
         self.assertEqual(data['authorship'],'synthetic_ai_prepared')
         families = {case['family'] for case in data['cases']}
         self.assertEqual(len(families),9)
-        self.assertEqual(len(data['cases']),24)
+        self.assertEqual(len(data['cases']),30)
         self.assertEqual(len({c['id'] for c in data['cases']}),len(data['cases']))
         for family in families:
             cases = [c for c in data['cases'] if c['family']==family]
