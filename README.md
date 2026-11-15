@@ -3,13 +3,14 @@
 **Every voice has a grain.**
 
 An independent public voice data pack for [Quillgrain](https://github.com/drevendev/Quillgrain).
-Version **0.5.0** revises the Russian editorial base and four original synthetic
-before/after examples. The task determines tone, distance and genre; humor and
-expressiveness remain available without becoming an obligatory formula.
+Version **0.6.0** refines the Russian editorial base and four original synthetic
+before/after examples. Editing preserves meaning, useful terms, purposeful
+repetition and scene interaction; structure and depth follow the reader's task.
 
 Status: **CANDIDATE / human review pending**. Acceptance of 0.4.2 was scoped to that
-iteration, not transferred to this release. English examples remain editorial
-fixtures without a new empirical calibration. No model-weight training is involved.
+iteration, not transferred to this release. Targeted R03 checks through **Codex passed**;
+owner literary acceptance remains pending. English guidance and examples are retained without a new empirical calibration.
+No model-weight training is involved.
 
 ```text
 qg pack validate --pack .
@@ -19,7 +20,7 @@ qg pack build --pack . --register maker_announcement --language en --target patc
 ```
 
 Registers: conversational, essay, fiction_narration and maker_announcement, RU/EN.
-The new RU register examples are selected by default. Former positive RU examples remain
+The new `.v6` RU register examples are selected by default. Former positive RU examples remain
 RETIRED. Add `include_negative` only to intentionally select the labelled negative
 Russian announcement example. Source facts and fictional scenario facts are not
 portable instructions, memories or claims about a new task.
@@ -30,7 +31,15 @@ corpus dependency or real inference output. Private reference material informs
 editorial decisions; it is not required to build this pack. Public CI uses only
 public pack data and the pinned public engine **0.1.0rc4**.
 
-`voice.json` is canonical. See [editorial intent](VOICE.md), [review decisions](docs/review-0.5.md)
-and [delivery/upgrade notes](docs/delivery.md). Historical data in `releases/0.3.0`
-and `releases/0.4.2` retain exact prior identities. A new version requires explicit
-parent pins and re-export; it does not install or upgrade consumer applications.
+`voice.json` is canonical. See [editorial intent](VOICE.md), [the specification](docs/spec-0.6.ru.md),
+[acceptance and review](docs/review-0.6.md), [edit/preserve contrasts](docs/contrasts-0.6.ru.md)
+and [delivery/upgrade notes](docs/delivery.md). Conflicting `social.*` destinations
+are rejected where their scopes overlap; `delivery.vivid` remains optional.
+Historical data in `releases/0.3.0`, `releases/0.4.2` and `releases/0.5.0` retain exact
+prior identities. A new version requires explicit parent pins and re-export;
+it does not install or upgrade consumer applications.
+
+Public CI also runs `python -m unittest discover -s tests -v` against the pinned
+external engine. Tests use original synthetic data to check composition, scopes,
+selection, permissions, budgets, historical identities and reproducible exports.
+No model calls or private dependencies run in CI.
