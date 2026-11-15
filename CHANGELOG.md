@@ -14,8 +14,11 @@ nine edit/preserve development families. Align provenance with canonical statuse
 preserve exact 0.5.0 voice/lock bytes and refresh the root lock on pinned engine
 0.1.0rc4. No corpus/runtime dependency is introduced.
 
-Status remains CANDIDATE / HUMAN_REVIEW_PENDING. Writer comparison is NOT_RUN;
-see `docs/review-0.6.md` for acceptance coverage. Common + Vivid comparison,
+Status remains CANDIDATE / HUMAN_REVIEW_PENDING. A controlled Codex comparison
+completed with semantic refusals; see `docs/review-0.6.md` for acceptance coverage.
+Review scoped the no-invented-details guidance to factual writing, strengthened
+the mandatory budget boundary check and added byte-exact historical snapshot checks.
+Common + Vivid comparison,
 consumer upgrades and model-weight training are outside this release.
 
 ## 0.5.0 — conditional tone and coherent demonstrations

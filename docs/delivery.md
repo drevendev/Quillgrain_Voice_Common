@@ -50,6 +50,6 @@ An alternative pool in a child pack uses both `--tag POOL` and
 The old retired `examples.common` pool is not restored. Development contrasts in
 `tests/fixtures/contrasts-0.6.json` are not automatically retrieved examples.
 
-See [acceptance and review](review-0.6.md) for the remaining writer/owner decision.
+See [acceptance and review](review-0.6.md) for the Codex findings and remaining semantic/owner decision.
 English editorial instructions and examples are unchanged. The engine stays pinned
 to 0.1.0rc4; consumers upgrade their parent pins only by explicit choice and re-export.

@@ -35,5 +35,6 @@ voice examples or recorded model outputs. English editorial instructions and
 examples are retained.
 
 This is a new CANDIDATE. The owner's scoped acceptance of 0.4.2 is historical and
-does not validate 0.6.0. Writer comparison remains NOT_RUN. Compilation checks establish contracts and reproducibility,
+does not validate 0.6.0. A Codex comparison was run; semantic acceptance remains open.
+Compilation checks establish contracts and reproducibility,
 not better literary quality or an individual author's signature.

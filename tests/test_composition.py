@@ -198,20 +198,38 @@ class Composition(unittest.TestCase):
         self.assertIn({'id':example['id'], 'reason':'budget'}, smaller['examples_omitted'])
         for rule in smaller['rules_applied']:
             self.assertIn(rule['instruction'], smaller['prompt_payload'])
-        self.expect_error('BUDGET_EXCEEDED', lambda:self.build(max_chars=1))
+        # Measure the mandatory-only export, then exercise the boundary against
+        # the real pack. A one-character budget only tests the engine preamble.
+        mandatory = copy.deepcopy(self.pack)
+        mandatory['rules'] = [r for r in mandatory['rules'] if r['kind']=='constraint' or r.get('required')]
+        mandatory['examples'] = []
+        with tempfile.TemporaryDirectory() as tmp:
+            write_json(Path(tmp)/'voice.json', mandatory)
+            required, _ = compile_context(tmp, language='ru', register='essay', public=True)
+        minimum = required['budget']['used_codepoints']
+        self.expect_error('BUDGET_EXCEEDED', lambda:self.build(max_chars=minimum-1))
+        fits, _ = self.build(max_chars=minimum)
+        self.assertEqual(fits['rules_applied'], required['rules_applied'])
+        self.assertFalse(fits['examples_selected'])
         for language, register in itertools.product(('ru','en'), REGISTERS):
             with self.subTest(language=language, register=register):
-                if language == 'ru':
-                    # Required RU source/task rules may exceed the legacy cap; never truncate them.
-                    try:
-                        ctx, _ = compile_context(ROOT, language=language, register=register, target='patchpitch-legacy', public=True)
-                    except QGError as e:
-                        self.assertEqual(e.code, 'BUDGET_EXCEEDED')
-                        continue
-                else:
-                    ctx, _ = compile_context(ROOT, language=language, register=register, target='patchpitch-legacy', public=True)
+                ctx, _ = compile_context(ROOT, language=language, register=register, target='patchpitch-legacy', public=True)
                 self.assertLessEqual(len(ctx['prompt_payload']), 1200)
                 self.assertTrue(ctx['rules_omitted'] or ctx['examples_omitted'])
+
+    def test_historical_snapshot_bytes_remain_exact(self):
+        fingerprints = {
+            '0.3.0': ('0358afa6fa49bf2256d868c9653fee3e9672c6116e4b80d2310715ead2b06b0a',
+                      '0d5a9a306c2a0633229d1ea897339f2b42bbe991b312e4e7301664790f60e9a4'),
+            '0.4.2': ('7db7e55ef4329bf09d085934f958ef6023cc1ea0272f598dc56b5c6957903b20',
+                      'ae9b2540a5a00d670e1564da8ee1e132d6a2b32c30b134cd64191e20ef445a58'),
+            '0.5.0': ('7ac9111b051c215b362ec6c3d70a8e4d5f708863017582620995c810e3b510b3',
+                      '3e0c1ea40fdaff16d242024d072f141a1e68cf169383a388c2c05ab38da647e4'),
+        }
+        for version, hashes in fingerprints.items():
+            for name, expected in zip(('voice.json','quillgrain.lock.json'),hashes):
+                with self.subTest(version=version,file=name):
+                    self.assertEqual(sha((ROOT/'releases'/version/name).read_bytes()),expected)
 
     def test_deterministic_context_lock_and_export(self):
         for target in ('chatgpt','codex','patchpitch','patchpitch-legacy'):
